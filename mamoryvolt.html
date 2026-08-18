@@ -1,0 +1,3849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MemoryVault | Your Moments. Safe Forever.</title>
+
+<style>
+
+/* =========================================================
+   MEMORYVAULT
+   Premium Purple / Blue Design
+   Made by Muntahin
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg: #030817;
+    --bg2: #07102b;
+    --card: rgba(12, 23, 58, 0.72);
+    --card2: rgba(18, 30, 70, 0.85);
+
+    --text: #ffffff;
+    --muted: #8e9abb;
+
+    --purple: #704cff;
+    --purple2: #9b6cff;
+    --blue: #1687ff;
+    --cyan: #20d9ff;
+    --pink: #ff4fce;
+
+    --border: rgba(120, 139, 220, 0.18);
+
+    --shadow:
+        0 20px 70px rgba(0,0,0,.45);
+
+    --glow:
+        0 0 40px rgba(112,76,255,.35);
+}
+
+body.light {
+    --bg: #f4f6ff;
+    --bg2: #e9edff;
+    --card: rgba(255,255,255,.75);
+    --card2: #ffffff;
+
+    --text: #10152c;
+    --muted: #66708c;
+
+    --border: rgba(30,40,100,.12);
+
+    background:
+        radial-gradient(circle at 20% 10%, #dcd4ff, transparent 30%),
+        #f4f6ff;
+}
+
+body {
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(112,76,255,.18),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(20,130,255,.14),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(255,50,210,.08),
+            transparent 30%
+        ),
+
+        var(--bg);
+
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: .3s;
+}
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.bg-grid {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -2;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 60px 60px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 85%
+        );
+}
+
+.glow {
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: .16;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.glow.one {
+    background: #713cff;
+    top: 0;
+    left: -200px;
+}
+
+.glow.two {
+    background: #1687ff;
+    top: 300px;
+    right: -250px;
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 5%;
+
+    background:
+        rgba(3,8,23,.68);
+
+    backdrop-filter: blur(22px);
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+body.light .navbar {
+    background: rgba(244,246,255,.72);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -.5px;
+}
+
+.logo-icon {
+    width: 34px;
+    height: 34px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--blue)
+        );
+
+    box-shadow:
+        0 0 25px rgba(112,76,255,.45);
+}
+
+.logo span {
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #a98cff
+        );
+
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn {
+    border: 1px solid var(--border);
+
+    background:
+        rgba(255,255,255,.04);
+
+    color: var(--text);
+
+    padding: 11px 17px;
+
+    border-radius: 10px;
+
+    font-weight: 700;
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    border-color: rgba(145,120,255,.5);
+}
+
+.btn-primary {
+    color: white;
+    border: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6947ff,
+            #9b58ff
+        );
+
+    box-shadow:
+        0 10px 30px rgba(104,67,255,.3);
+}
+
+.btn-primary:hover {
+    box-shadow:
+        0 14px 40px rgba(104,67,255,.5);
+}
+
+.btn-large {
+    padding: 14px 22px;
+    font-size: 13px;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    max-width: 1250px;
+    min-height: 600px;
+
+    margin: auto;
+
+    padding: 65px 30px 35px;
+
+    display: grid;
+
+    grid-template-columns:
+        .95fr
+        1.05fr;
+
+    align-items: center;
+
+    gap: 40px;
+}
+
+.hero-left {
+    position: relative;
+    z-index: 5;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 7px 13px;
+
+    border-radius: 50px;
+
+    background:
+        rgba(91,65,255,.12);
+
+    border:
+        1px solid rgba(126,101,255,.25);
+
+    color: #b9a8ff;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.badge-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #9c78ff;
+
+    box-shadow:
+        0 0 12px #9c78ff;
+}
+
+.hero h1 {
+    margin-top: 20px;
+
+    font-size:
+        clamp(
+            45px,
+            5vw,
+            70px
+        );
+
+    line-height: .98;
+
+    letter-spacing: -3px;
+
+    max-width: 680px;
+}
+
+.gradient-text {
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #a98bff,
+            #5e9fff
+        );
+
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero-description {
+    margin-top: 20px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    max-width: 500px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 10px;
+
+    margin-top: 26px;
+}
+
+.made-by {
+    margin-top: 17px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+.made-by strong {
+    color: #bba8ff;
+}
+
+/* =========================================================
+   HERO VISUAL
+========================================================= */
+
+.hero-visual {
+    position: relative;
+
+    height: 500px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-glow {
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(116,70,255,.65),
+            transparent 65%
+        );
+
+    filter: blur(20px);
+}
+
+.orbit {
+    position: absolute;
+
+    width: 440px;
+    height: 210px;
+
+    border: 2px solid rgba(119,73,255,.7);
+
+    border-radius: 50%;
+
+    transform:
+        rotate(-7deg);
+
+    box-shadow:
+        0 0 25px rgba(111,69,255,.5),
+        inset 0 0 25px rgba(111,69,255,.2);
+}
+
+.orbit.two {
+    width: 500px;
+    height: 260px;
+
+    transform:
+        rotate(12deg);
+
+    opacity: .35;
+}
+
+.photo {
+    position: absolute;
+
+    width: 150px;
+    height: 115px;
+
+    padding: 6px;
+
+    background: white;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 25px 50px rgba(0,0,0,.5);
+
+    transition: .3s;
+
+    z-index: 4;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 5px;
+}
+
+.photo:hover {
+    transform:
+        translateY(-10px)
+        scale(1.05);
+}
+
+.photo.one {
+    top: 25px;
+    left: 70px;
+    transform: rotate(-9deg);
+}
+
+.photo.two {
+    top: 10px;
+    right: 75px;
+    transform: rotate(9deg);
+}
+
+.photo.three {
+    top: 150px;
+    right: 20px;
+    transform: rotate(5deg);
+}
+
+.photo.four {
+    top: 170px;
+    left: 30px;
+    transform: rotate(-5deg);
+}
+
+.photo.five {
+    bottom: 45px;
+    left: 150px;
+    transform: rotate(7deg);
+}
+
+/* =========================================================
+   VAULT
+========================================================= */
+
+.vault {
+    position: absolute;
+
+    width: 280px;
+    height: 190px;
+
+    bottom: 25px;
+
+    z-index: 8;
+
+    border-radius:
+        20px 20px 30px 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #4d2cd4,
+            #25127b
+        );
+
+    border:
+        1px solid rgba(174,148,255,.5);
+
+    box-shadow:
+        0 35px 80px rgba(61,33,180,.6),
+        inset 0 1px 1px rgba(255,255,255,.3);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vault::before {
+    content: "";
+
+    position: absolute;
+
+    top: -35px;
+
+    width: 210px;
+    height: 50px;
+
+    border-radius: 20px 20px 5px 5px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6c4bea,
+            #321695
+        );
+
+    border:
+        1px solid rgba(174,148,255,.4);
+
+    box-shadow:
+        0 -8px 25px rgba(103,69,255,.25);
+}
+
+.lock {
+    position: relative;
+    z-index: 2;
+
+    width: 65px;
+    height: 65px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 18px;
+
+    background:
+        rgba(0,0,0,.18);
+
+    border:
+        1px solid rgba(255,255,255,.2);
+
+    font-size: 28px;
+
+    box-shadow:
+        0 0 30px rgba(145,116,255,.35);
+}
+
+/* =========================================================
+   FEATURE BAR
+========================================================= */
+
+.features {
+    max-width: 1250px;
+
+    margin: 0 auto 30px;
+
+    padding: 0 30px;
+}
+
+.feature-bar {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 1px;
+
+    overflow: hidden;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 15px;
+
+    background:
+        rgba(40,53,110,.22);
+
+    backdrop-filter: blur(20px);
+}
+
+.feature {
+    padding: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    background:
+        rgba(10,20,50,.35);
+}
+
+.feature-icon {
+    width: 36px;
+    height: 36px;
+
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 10px;
+
+    background:
+        rgba(104,73,255,.17);
+
+    color: #a78dff;
+}
+
+.feature h4 {
+    font-size: 11px;
+}
+
+.feature p {
+    margin-top: 3px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+}
+
+/* =========================================================
+   DASHBOARD PREVIEW
+========================================================= */
+
+.preview-section {
+    max-width: 1250px;
+
+    margin: 35px auto 100px;
+
+    padding: 0 30px;
+}
+
+.preview-label {
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    margin-bottom: 16px;
+}
+
+.dashboard-preview {
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    border:
+        1px solid rgba(119,133,220,.25);
+
+    background:
+        rgba(6,13,35,.9);
+
+    box-shadow:
+        0 40px 100px rgba(0,0,0,.5),
+        0 0 70px rgba(70,55,180,.13);
+
+    display: grid;
+
+    grid-template-columns:
+        160px 1fr;
+}
+
+.preview-sidebar {
+    border-right:
+        1px solid var(--border);
+
+    padding: 18px 13px;
+
+    min-height: 390px;
+}
+
+.preview-logo {
+    font-size: 12px;
+    font-weight: 800;
+
+    margin-bottom: 30px;
+}
+
+.preview-menu {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.preview-menu div {
+    padding: 9px;
+
+    border-radius: 7px;
+
+    color: #7783a7;
+
+    font-size: 9px;
+}
+
+.preview-menu .active {
+    background:
+        rgba(91,70,255,.2);
+
+    color: white;
+}
+
+.preview-main {
+    padding: 18px;
+}
+
+.preview-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 18px;
+}
+
+.preview-search {
+    width: 230px;
+
+    height: 27px;
+
+    border-radius: 8px;
+
+    background:
+        rgba(45,57,110,.4);
+
+    color: #66739d;
+
+    font-size: 8px;
+
+    padding: 8px;
+}
+
+.preview-add {
+    background:
+        linear-gradient(
+            135deg,
+            #6c4cff,
+            #9d57ff
+        );
+
+    padding: 8px 12px;
+
+    border-radius: 7px;
+
+    font-size: 8px;
+}
+
+.preview-heading {
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.preview-sub {
+    color: #69769d;
+
+    font-size: 8px;
+
+    margin-top: 3px;
+}
+
+.preview-stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 9px;
+
+    margin: 17px 0;
+}
+
+.preview-stat {
+    padding: 12px;
+
+    border-radius: 9px;
+
+    background:
+        rgba(25,39,86,.65);
+
+    border:
+        1px solid rgba(100,115,190,.12);
+}
+
+.preview-stat span {
+    color: #7180a8;
+
+    font-size: 7px;
+}
+
+.preview-stat strong {
+    display: block;
+
+    font-size: 17px;
+
+    margin-top: 5px;
+}
+
+.preview-gallery {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 9px;
+}
+
+.preview-card {
+    overflow: hidden;
+
+    border-radius: 9px;
+
+    background:
+        rgba(20,30,65,.8);
+}
+
+.preview-card img {
+    width: 100%;
+    height: 105px;
+
+    object-fit: cover;
+}
+
+.preview-card-info {
+    padding: 8px;
+}
+
+.preview-card-info strong {
+    font-size: 8px;
+}
+
+.preview-card-info p {
+    color: #68759a;
+
+    font-size: 7px;
+
+    margin-top: 3px;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    border-top:
+        1px solid var(--border);
+
+    padding: 25px 5%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+/* =========================================================
+   AUTH
+========================================================= */
+
+.auth-page {
+    display: none;
+
+    min-height:
+        calc(100vh - 72px);
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 410px;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(10,20,50,.75);
+
+    backdrop-filter: blur(20px);
+
+    border:
+        1px solid var(--border);
+
+    box-shadow:
+        var(--shadow);
+}
+
+.auth-card h2 {
+    margin-top: 20px;
+
+    font-size: 30px;
+}
+
+.auth-card p {
+    color: var(--muted);
+
+    margin: 8px 0 25px;
+
+    font-size: 13px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+input,
+textarea {
+    width: 100%;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 9px;
+
+    padding: 12px;
+
+    background:
+        rgba(0,0,0,.18);
+
+    color: var(--text);
+
+    outline: none;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #7659ff;
+
+    box-shadow:
+        0 0 0 3px rgba(118,89,255,.1);
+}
+
+.auth-link {
+    color: #9d87ff;
+
+    cursor: pointer;
+
+    text-align: center;
+
+    margin-top: 18px;
+
+    font-size: 11px;
+}
+
+/* =========================================================
+   DASHBOARD
+========================================================= */
+
+#dashboardPage {
+    display: none;
+}
+
+.dashboard {
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding: 35px 30px 70px;
+}
+
+.dashboard-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+.dashboard-title h1 {
+    font-size: 35px;
+}
+
+.dashboard-title p {
+    color: var(--muted);
+
+    font-size: 12px;
+
+    margin-top: 5px;
+}
+
+.dashboard-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 12px;
+
+    margin-bottom: 22px;
+}
+
+.stat {
+    padding: 18px;
+
+    border-radius: 14px;
+
+    background:
+        var(--card);
+
+    border:
+        1px solid var(--border);
+
+    backdrop-filter: blur(20px);
+}
+
+.stat span {
+    color: var(--muted);
+
+    font-size: 10px;
+}
+
+.stat strong {
+    display: block;
+
+    font-size: 27px;
+
+    margin-top: 6px;
+}
+
+.search-box {
+    margin-bottom: 18px;
+}
+
+.gallery {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 14px;
+}
+
+.memory-card {
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    background:
+        var(--card);
+
+    border:
+        1px solid var(--border);
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.memory-card:hover {
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        var(--shadow);
+}
+
+.memory-card img {
+    width: 100%;
+
+    aspect-ratio: 1;
+
+    object-fit: cover;
+}
+
+.memory-info {
+    padding: 12px;
+}
+
+.memory-title {
+    font-size: 11px;
+    font-weight: 800;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+.memory-date {
+    margin-top: 5px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+}
+
+.empty {
+    grid-column: 1/-1;
+
+    padding: 70px 20px;
+
+    text-align: center;
+
+    border:
+        1px dashed var(--border);
+
+    border-radius: 15px;
+
+    color: var(--muted);
+}
+
+/* =========================================================
+   MODALS
+========================================================= */
+
+.modal-background {
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(0,0,0,.75);
+
+    backdrop-filter: blur(10px);
+
+    z-index: 2000;
+}
+
+.modal {
+    position: relative;
+
+    width: 100%;
+
+    max-width: 700px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    border-radius: 18px;
+
+    background:
+        #0a1230;
+
+    border:
+        1px solid var(--border);
+
+    box-shadow:
+        0 40px 100px rgba(0,0,0,.6);
+}
+
+.modal-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 20px;
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+.modal-header h2 {
+    font-size: 19px;
+}
+
+.close {
+    width: 30px;
+    height: 30px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.08);
+
+    color: white;
+
+    cursor: pointer;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.upload-area {
+    padding: 35px;
+
+    text-align: center;
+
+    border:
+        2px dashed rgba(130,110,255,.3);
+
+    border-radius: 15px;
+
+    cursor: pointer;
+
+    margin-bottom: 18px;
+}
+
+.upload-area:hover {
+    border-color: #7659ff;
+
+    background:
+        rgba(100,70,255,.06);
+}
+
+.upload-area input {
+    display: none;
+}
+
+.upload-area h3 {
+    font-size: 15px;
+
+    margin-bottom: 6px;
+}
+
+.upload-area p {
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+.preview {
+    width: 100%;
+
+    max-height: 270px;
+
+    object-fit: contain;
+
+    display: none;
+
+    border-radius: 12px;
+
+    margin-bottom: 15px;
+
+    background: black;
+}
+
+.modal-image {
+    width: 100%;
+
+    max-height: 470px;
+
+    object-fit: contain;
+
+    background: #02040b;
+}
+
+.detail-content {
+    padding: 22px;
+}
+
+.detail-content h2 {
+    font-size: 25px;
+}
+
+.detail-description {
+    margin-top: 10px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+.tags {
+    display: flex;
+
+    gap: 6px;
+
+    flex-wrap: wrap;
+
+    margin: 15px 0;
+}
+
+.tag {
+    padding: 5px 9px;
+
+    border-radius: 50px;
+
+    background:
+        rgba(110,80,255,.14);
+
+    color: #ae9bff;
+
+    font-size: 9px;
+}
+
+.modal-buttons {
+    display: flex;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+
+    margin-top: 18px;
+}
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    padding: 13px 17px;
+
+    border-radius: 10px;
+
+    background:
+        #171d38;
+
+    color: white;
+
+    border:
+        1px solid var(--border);
+
+    display: none;
+
+    z-index: 3000;
+
+    font-size: 11px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.4);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:950px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .made-by {
+        text-align: center;
+    }
+
+    .feature-bar {
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .gallery {
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+}
+
+@media(max-width:650px) {
+
+    .navbar {
+        padding: 0 15px;
+    }
+
+    .nav-actions .btn:not(.btn-primary) {
+        display: none;
+    }
+
+    .hero {
+        padding: 45px 18px 20px;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+        letter-spacing: -2px;
+    }
+
+    .hero-visual {
+        transform: scale(.72);
+        height: 390px;
+        margin-top: -25px;
+        margin-bottom: -40px;
+    }
+
+    .feature-bar {
+        grid-template-columns: 1fr;
+    }
+
+    .preview-section,
+    .features {
+        padding: 0 15px;
+    }
+
+    .dashboard-preview {
+        grid-template-columns: 90px 1fr;
+    }
+
+    .preview-gallery {
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .preview-card:nth-child(n+3) {
+        display: none;
+    }
+
+    .preview-search {
+        width: 130px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery {
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .dashboard {
+        padding: 25px 15px;
+    }
+
+    .dashboard-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg-grid"></div>
+<div class="glow one"></div>
+<div class="glow two"></div>
+
+
+<!-- ========================================================
+     NAVBAR
+========================================================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            🔐
+        </div>
+
+        Memory<span>Vault</span>
+
+    </div>
+
+
+    <div class="nav-links">
+
+        <a onclick="showHome()">Home</a>
+
+        <a href="#features">Features</a>
+
+        <a href="#preview">About</a>
+
+    </div>
+
+
+    <div class="nav-actions">
+
+        <button
+            class="btn"
+            onclick="toggleTheme()">
+            ◐
+        </button>
+
+        <button
+            class="btn"
+            onclick="showLogin()">
+            Sign In
+        </button>
+
+        <button
+            class="btn btn-primary"
+            onclick="showSignup()">
+            Get Started
+        </button>
+
+    </div>
+
+</nav>
+
+
+<!-- ========================================================
+     HOME
+========================================================= -->
+
+<section id="homePage">
+
+
+    <div class="hero">
+
+        <div class="hero-left">
+
+            <div class="badge">
+
+                <span class="badge-dot"></span>
+
+                Your Moments. Safe Forever.
+
+            </div>
+
+
+            <h1>
+
+                Save Your Memories
+
+                <br>
+
+                <span class="gradient-text">
+                    in a Beautiful Vault
+                </span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                MemoryVault lets you store, organize and
+                relive your favorite moments, all in one
+                beautiful private space.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <button
+                    class="btn btn-primary btn-large"
+                    onclick="showSignup()">
+
+                    ☁ Start Saving Now
+
+                </button>
+
+
+                <button
+                    class="btn btn-large"
+                    onclick="document
+                    .getElementById('preview')
+                    .scrollIntoView()">
+
+                    ▶ Watch How It Works
+
+                </button>
+
+            </div>
+
+
+            <div class="made-by">
+
+                Made by
+                <strong>Muntahin 💜</strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- HERO GRAPHIC -->
+
+        <div class="hero-visual">
+
+            <div class="hero-glow"></div>
+
+            <div class="orbit"></div>
+
+            <div class="orbit two"></div>
+
+
+            <div class="photo one">
+
+                <img
+                    src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=500&q=80">
+
+            </div>
+
+
+            <div class="photo two">
+
+                <img
+                    src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=500&q=80">
+
+            </div>
+
+
+            <div class="photo three">
+
+                <img
+                    src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=500&q=80">
+
+            </div>
+
+
+            <div class="photo four">
+
+                <img
+                    src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=500&q=80">
+
+            </div>
+
+
+            <div class="photo five">
+
+                <img
+                    src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=500&q=80">
+
+            </div>
+
+
+            <div class="vault">
+
+                <div class="lock">
+                    🔒
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ====================================================
+         FEATURES
+    ===================================================== -->
+
+    <div
+        class="features"
+        id="features">
+
+        <div class="feature-bar">
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🛡
+                </div>
+
+                <div>
+
+                    <h4>
+                        Private & Secure
+                    </h4>
+
+                    <p>
+                        Your memories, your control
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ☁
+                </div>
+
+                <div>
+
+                    <h4>
+                        Accessible Anywhere
+                    </h4>
+
+                    <p>
+                        Your memories on your devices
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    #
+                </div>
+
+                <div>
+
+                    <h4>
+                        Organize with Tags
+                    </h4>
+
+                    <p>
+                        Find what matters
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ♥
+                </div>
+
+                <div>
+
+                    <h4>
+                        Keep What You Love
+                    </h4>
+
+                    <p>
+                        Favorite your best moments
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- ====================================================
+         DASHBOARD PREVIEW
+    ===================================================== -->
+
+    <section
+        class="preview-section"
+        id="preview">
+
+        <div class="preview-label">
+
+            A glimpse inside your MemoryVault
+
+        </div>
+
+
+        <div class="dashboard-preview">
+
+
+            <aside class="preview-sidebar">
+
+                <div class="preview-logo">
+                    🔐 MemoryVault
+                </div>
+
+
+                <div class="preview-menu">
+
+                    <div class="active">
+                        🏠 Home
+                    </div>
+
+                    <div>
+                        ▣ My Memories
+                    </div>
+
+                    <div>
+                        ♥ Favorites
+                    </div>
+
+                    <div>
+                        # Tags
+                    </div>
+
+                    <div style="margin-top:25px">
+                        ↪ Logout
+                    </div>
+
+                </div>
+
+            </aside>
+
+
+            <main class="preview-main">
+
+
+                <div class="preview-top">
+
+                    <div class="preview-search">
+                        🔍 Search memories...
+                    </div>
+
+                    <div class="preview-add">
+                        ＋ Add Memory
+                    </div>
+
+                </div>
+
+
+                <div class="preview-heading">
+
+                    Your Memories
+
+                </div>
+
+                <div class="preview-sub">
+
+                    A collection of your precious moments
+
+                </div>
+
+
+                <div class="preview-stats">
+
+
+                    <div class="preview-stat">
+
+                        <span>
+                            Total Memories
+                        </span>
+
+                        <strong>
+                            48
+                        </strong>
+
+                    </div>
+
+
+                    <div class="preview-stat">
+
+                        <span>
+                            Favorites
+                        </span>
+
+                        <strong>
+                            12
+                        </strong>
+
+                    </div>
+
+
+                    <div class="preview-stat">
+
+                        <span>
+                            Latest Memory
+                        </span>
+
+                        <strong>
+                            May 24
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="preview-gallery">
+
+
+                    <div class="preview-card">
+
+                        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=600&q=80">
+
+                        <div class="preview-card-info">
+
+                            <strong>
+                                Mountain Bliss
+                            </strong>
+
+                            <p>
+                                May 24, 2024
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="preview-card">
+
+                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80">
+
+                        <div class="preview-card-info">
+
+                            <strong>
+                                Beach Sunset
+                            </strong>
+
+                            <p>
+                                May 22, 2024
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="preview-card">
+
+                        <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=600&q=80">
+
+                        <div class="preview-card-info">
+
+                            <strong>
+                                City Lights
+                            </strong>
+
+                            <p>
+                                May 20, 2024
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="preview-card">
+
+                        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=600&q=80">
+
+                        <div class="preview-card-info">
+
+                            <strong>
+                                Freedom
+                            </strong>
+
+                            <p>
+                                May 18, 2024
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </main>
+
+        </div>
+
+    </section>
+
+</section>
+
+
+<!-- ========================================================
+     LOGIN
+========================================================= -->
+
+<section
+    id="loginPage"
+    class="auth-page">
+
+    <div class="auth-card">
+
+        <div class="logo">
+            🔐 Memory<span>Vault</span>
+        </div>
+
+        <h2>
+            Welcome back
+        </h2>
+
+        <p>
+            Sign in to your private memory vault.
+        </p>
+
+
+        <form onsubmit="login(event)">
+
+            <div class="form-group">
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="you@example.com"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Password"
+                    required>
+
+            </div>
+
+
+            <button
+                class="btn btn-primary"
+                style="width:100%">
+
+                Sign In
+
+            </button>
+
+        </form>
+
+
+        <div
+            class="auth-link"
+            onclick="forgotPassword()">
+
+            Forgot password?
+
+        </div>
+
+
+        <div class="auth-link">
+
+            Don't have an account?
+
+            <span
+                style="color:#a98cff;cursor:pointer"
+                onclick="showSignup()">
+
+                Create one
+
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================
+     SIGNUP
+========================================================= -->
+
+<section
+    id="signupPage"
+    class="auth-page">
+
+    <div class="auth-card">
+
+        <div class="logo">
+            🔐 Memory<span>Vault</span>
+        </div>
+
+        <h2>
+            Create your vault
+        </h2>
+
+        <p>
+            Start saving your favorite moments.
+        </p>
+
+
+        <form onsubmit="signup(event)">
+
+            <div class="form-group">
+
+                <label>Name</label>
+
+                <input
+                    type="text"
+                    id="signupName"
+                    placeholder="Your name"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    id="signupEmail"
+                    placeholder="you@example.com"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    id="signupPassword"
+                    minlength="6"
+                    placeholder="At least 6 characters"
+                    required>
+
+            </div>
+
+
+            <button
+                class="btn btn-primary"
+                style="width:100%">
+
+                Create Account
+
+            </button>
+
+        </form>
+
+
+        <div class="auth-link">
+
+            Already have an account?
+
+            <span
+                style="color:#a98cff;cursor:pointer"
+                onclick="showLogin()">
+
+                Sign in
+
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================
+     DASHBOARD
+========================================================= -->
+
+<section id="dashboardPage">
+
+    <div class="dashboard">
+
+
+        <div class="dashboard-top">
+
+            <div class="dashboard-title">
+
+                <h1>
+                    Your Memories
+                </h1>
+
+                <p id="welcomeText">
+                    Welcome back.
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-actions">
+
+                <button
+                    class="btn btn-primary"
+                    onclick="openUpload()">
+
+                    ＋ Add Memory
+
+                </button>
+
+
+                <button
+                    class="btn"
+                    onclick="logout()">
+
+                    Logout
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="stats">
+
+
+            <div class="stat">
+
+                <span>
+                    Total Memories
+                </span>
+
+                <strong id="photoCount">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat">
+
+                <span>
+                    Favorites
+                </span>
+
+                <strong id="favoriteCount">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat">
+
+                <span>
+                    Latest Memory
+                </span>
+
+                <strong id="latestDate">
+                    —
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="search-box">
+
+            <input
+                id="searchInput"
+                placeholder="🔍 Search your memories..."
+                oninput="displayMemories()">
+
+        </div>
+
+
+        <div
+            id="gallery"
+            class="gallery">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================
+     UPLOAD MODAL
+========================================================= -->
+
+<div
+    id="uploadModal"
+    class="modal-background">
+
+    <div class="modal">
+
+
+        <div class="modal-header">
+
+            <h2>
+                Save a Memory
+            </h2>
+
+            <button
+                class="close"
+                onclick="closeUpload()">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <div class="modal-body">
+
+
+            <div
+                class="upload-area"
+                onclick="document
+                .getElementById('imageInput')
+                .click()">
+
+                <input
+                    type="file"
+                    id="imageInput"
+                    accept=".jpg,.jpeg,.png,.webp"
+                    onchange="previewImage(event)">
+
+                <h3>
+                    📸 Choose your photo
+                </h3>
+
+                <p>
+                    JPG, JPEG, PNG or WEBP
+                </p>
+
+                <p style="margin-top:5px">
+                    Maximum 10 MB
+                </p>
+
+            </div>
+
+
+            <img
+                id="imagePreview"
+                class="preview">
+
+
+            <div class="form-group">
+
+                <label>
+                    Title
+                </label>
+
+                <input
+                    id="memoryTitle"
+                    placeholder="My favorite moment">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Description
+                </label>
+
+                <textarea
+                    id="memoryDescription"
+                    placeholder="Tell the story behind this memory...">
+                </textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Tags
+                </label>
+
+                <input
+                    id="memoryTags"
+                    placeholder="family, travel, birthday">
+
+            </div>
+
+
+            <button
+                class="btn btn-primary"
+                style="width:100%"
+                onclick="saveMemory()">
+
+                🔐 Save to MemoryVault
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ========================================================
+     DETAIL MODAL
+========================================================= -->
+
+<div
+    id="detailModal"
+    class="modal-background">
+
+    <div class="modal">
+
+
+        <button
+            class="close"
+            style="
+            position:absolute;
+            right:15px;
+            top:15px;
+            z-index:5"
+            onclick="closeDetail()">
+
+            ×
+
+        </button>
+
+
+        <img
+            id="detailImage"
+            class="modal-image">
+
+
+        <div class="detail-content">
+
+            <h2 id="detailTitle"></h2>
+
+
+            <p
+                id="detailDescription"
+                class="detail-description">
+            </p>
+
+
+            <div
+                id="detailTags"
+                class="tags">
+            </div>
+
+
+            <p
+                id="detailDate"
+                class="memory-date">
+            </p>
+
+
+            <div class="modal-buttons">
+
+                <button
+                    class="btn"
+                    onclick="editMemory()">
+
+                    ✏ Edit
+
+                </button>
+
+
+                <button
+                    class="btn"
+                    onclick="favoriteMemory()">
+
+                    ♥ Favorite
+
+                </button>
+
+
+                <button
+                    class="btn"
+                    onclick="downloadMemory()">
+
+                    ↓ Download
+
+                </button>
+
+
+                <button
+                    class="btn"
+                    style="
+                    background:#e53935;
+                    color:white"
+                    onclick="deleteMemory()">
+
+                    🗑 Delete
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div
+    id="toast"
+    class="toast">
+</div>
+
+
+<!-- ========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div>
+        © 2026 MemoryVault
+    </div>
+
+    <div>
+        Your Moments. Safe Forever. • Made by Muntahin 💜
+    </div>
+
+</footer>
+
+
+<script>
+
+/* =========================================================
+   MEMORYVAULT JAVASCRIPT
+========================================================= */
+
+let currentUser = null;
+let selectedMemory = null;
+
+
+/* STORAGE */
+
+function getUsers() {
+
+    return JSON.parse(
+        localStorage.getItem(
+            "memoryVaultUsers"
+        ) || "[]"
+    );
+
+}
+
+
+function saveUsers(users) {
+
+    localStorage.setItem(
+        "memoryVaultUsers",
+        JSON.stringify(users)
+    );
+
+}
+
+
+function getMemories() {
+
+    if (!currentUser) return [];
+
+    return JSON.parse(
+        localStorage.getItem(
+            "memoryVaultMemories_" +
+            currentUser.email
+        ) || "[]"
+    );
+
+}
+
+
+function saveMemories(memories) {
+
+    localStorage.setItem(
+        "memoryVaultMemories_" +
+        currentUser.email,
+        JSON.stringify(memories)
+    );
+
+}
+
+
+/* PAGE NAVIGATION */
+
+function hideAllPages() {
+
+    document.getElementById(
+        "homePage"
+    ).style.display = "none";
+
+    document.getElementById(
+        "loginPage"
+    ).style.display = "none";
+
+    document.getElementById(
+        "signupPage"
+    ).style.display = "none";
+
+    document.getElementById(
+        "dashboardPage"
+    ).style.display = "none";
+
+}
+
+
+function showHome() {
+
+    hideAllPages();
+
+    document.getElementById(
+        "homePage"
+    ).style.display = "block";
+
+}
+
+
+function showLogin() {
+
+    hideAllPages();
+
+    document.getElementById(
+        "loginPage"
+    ).style.display = "flex";
+
+}
+
+
+function showSignup() {
+
+    hideAllPages();
+
+    document.getElementById(
+        "signupPage"
+    ).style.display = "flex";
+
+}
+
+
+function showDashboard() {
+
+    hideAllPages();
+
+    document.getElementById(
+        "dashboardPage"
+    ).style.display = "block";
+
+    updateDashboard();
+
+}
+
+
+/* SIGNUP */
+
+function signup(event) {
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById(
+            "signupName"
+        ).value.trim();
+
+    const email =
+        document.getElementById(
+            "signupEmail"
+        ).value.trim().toLowerCase();
+
+    const password =
+        document.getElementById(
+            "signupPassword"
+        ).value;
+
+    const users = getUsers();
+
+    if (
+        users.some(
+            user => user.email === email
+        )
+    ) {
+
+        showToast(
+            "This email is already registered."
+        );
+
+        return;
+    }
+
+
+    const user = {
+
+        name,
+        email,
+        password,
+
+        createdAt:
+            new Date().toISOString()
+
+    };
+
+
+    users.push(user);
+
+    saveUsers(users);
+
+    currentUser = user;
+
+    localStorage.setItem(
+        "memoryVaultCurrentUser",
+        JSON.stringify(user)
+    );
+
+
+    showToast(
+        "Welcome to MemoryVault!"
+    );
+
+
+    setTimeout(
+        showDashboard,
+        600
+    );
+
+}
+
+
+/* LOGIN */
+
+function login(event) {
+
+    event.preventDefault();
+
+    const email =
+        document.getElementById(
+            "loginEmail"
+        ).value.trim().toLowerCase();
+
+    const password =
+        document.getElementById(
+            "loginPassword"
+        ).value;
+
+
+    const user =
+        getUsers().find(
+            u =>
+                u.email === email &&
+                u.password === password
+        );
+
+
+    if (!user) {
+
+        showToast(
+            "Incorrect email or password."
+        );
+
+        return;
+    }
+
+
+    currentUser = user;
+
+
+    localStorage.setItem(
+        "memoryVaultCurrentUser",
+        JSON.stringify(user)
+    );
+
+
+    showToast(
+        "Welcome back, " +
+        user.name +
+        "!"
+    );
+
+
+    setTimeout(
+        showDashboard,
+        600
+    );
+
+}
+
+
+/* LOGOUT */
+
+function logout() {
+
+    currentUser = null;
+
+    localStorage.removeItem(
+        "memoryVaultCurrentUser"
+    );
+
+    showHome();
+
+    showToast(
+        "You have been logged out."
+    );
+
+}
+
+
+/* FORGOT PASSWORD */
+
+function forgotPassword() {
+
+    const email =
+        prompt(
+            "Enter your MemoryVault email:"
+        );
+
+    if (!email) return;
+
+
+    const users = getUsers();
+
+    const user =
+        users.find(
+            u =>
+                u.email ===
+                email.trim().toLowerCase()
+        );
+
+
+    if (!user) {
+
+        showToast(
+            "Account not found."
+        );
+
+        return;
+    }
+
+
+    const newPassword =
+        prompt(
+            "Enter your new password:"
+        );
+
+
+    if (
+        !newPassword ||
+        newPassword.length < 6
+    ) {
+
+        showToast(
+            "Password must contain at least 6 characters."
+        );
+
+        return;
+    }
+
+
+    user.password =
+        newPassword;
+
+    saveUsers(users);
+
+
+    showToast(
+        "Password changed successfully."
+    );
+
+}
+
+
+/* DASHBOARD */
+
+function updateDashboard() {
+
+    if (!currentUser) return;
+
+
+    document.getElementById(
+        "welcomeText"
+    ).textContent =
+        "Welcome back, " +
+        currentUser.name +
+        ". Your memories are waiting.";
+
+
+    displayMemories();
+
+}
+
+
+/* DISPLAY */
+
+function displayMemories() {
+
+    const gallery =
+        document.getElementById(
+            "gallery"
+        );
+
+
+    const search =
+        document.getElementById(
+            "searchInput"
+        ).value.toLowerCase();
+
+
+    const memories =
+        getMemories();
+
+
+    const filtered =
+        memories.filter(memory =>
+
+            memory.title
+                .toLowerCase()
+                .includes(search)
+
+            ||
+
+            memory.description
+                .toLowerCase()
+                .includes(search)
+
+            ||
+
+            memory.tags
+                .join(" ")
+                .toLowerCase()
+                .includes(search)
+
+        );
+
+
+    document.getElementById(
+        "photoCount"
+    ).textContent =
+        memories.length;
+
+
+    document.getElementById(
+        "favoriteCount"
+    ).textContent =
+        memories.filter(
+            m => m.favorite
+        ).length;
+
+
+    if (memories.length) {
+
+        document.getElementById(
+            "latestDate"
+        ).textContent =
+            new Date(
+                memories[0].date
+            ).toLocaleDateString();
+
+    } else {
+
+        document.getElementById(
+            "latestDate"
+        ).textContent = "—";
+
+    }
+
+
+    gallery.innerHTML = "";
+
+
+    if (!filtered.length) {
+
+        gallery.innerHTML = `
+
+        <div class="empty">
+
+            <h2>
+                ${
+                    search
+                    ? "No memories found"
+                    : "Your vault is empty"
+                }
+            </h2>
+
+            <p style="margin:10px 0 18px">
+
+                ${
+                    search
+                    ? "Try another search."
+                    : "Start by saving your first memory."
+                }
+
+            </p>
+
+            ${
+                !search
+                ? `
+                <button
+                    class="btn btn-primary"
+                    onclick="openUpload()">
+
+                    ＋ Add Your First Memory
+
+                </button>
+                `
+                : ""
+            }
+
+        </div>
+
+        `;
+
+        return;
+    }
+
+
+    filtered.forEach(memory => {
+
+        const card =
+            document.createElement(
+                "div"
+            );
+
+
+        card.className =
+            "memory-card";
+
+
+        card.onclick =
+            () =>
+                openDetail(
+                    memory.id
+                );
+
+
+        card.innerHTML = `
+
+        <img
+            src="${memory.image}"
+            alt="${escapeHTML(memory.title)}">
+
+        <div class="memory-info">
+
+            <div class="memory-title">
+
+                ${escapeHTML(
+                    memory.title
+                )}
+
+            </div>
+
+            <div class="memory-date">
+
+                ${new Date(
+                    memory.date
+                ).toLocaleDateString()}
+
+                ${memory.favorite ? " ♥" : ""}
+
+            </div>
+
+        </div>
+
+        `;
+
+
+        gallery.appendChild(
+            card
+        );
+
+    });
+
+}
+
+
+/* UPLOAD */
+
+function openUpload() {
+
+    document.getElementById(
+        "uploadModal"
+    ).style.display = "flex";
+
+}
+
+
+function closeUpload() {
+
+    document.getElementById(
+        "uploadModal"
+    ).style.display = "none";
+
+    document.getElementById(
+        "imageInput"
+    ).value = "";
+
+    document.getElementById(
+        "imagePreview"
+    ).style.display = "none";
+
+    document.getElementById(
+        "memoryTitle"
+    ).value = "";
+
+    document.getElementById(
+        "memoryDescription"
+    ).value = "";
+
+    document.getElementById(
+        "memoryTags"
+    ).value = "";
+
+}
+
+
+/* IMAGE */
+
+function previewImage(event) {
+
+    const file =
+        event.target.files[0];
+
+    if (!file) return;
+
+
+    const allowed = [
+
+        "image/jpeg",
+        "image/png",
+        "image/webp"
+
+    ];
+
+
+    if (
+        !allowed.includes(
+            file.type
+        )
+    ) {
+
+        showToast(
+            "Only JPG, JPEG, PNG and WEBP are supported."
+        );
+
+        event.target.value = "";
+
+        return;
+    }
+
+
+    if (
+        file.size >
+        10 * 1024 * 1024
+    ) {
+
+        showToast(
+            "Image must be smaller than 10 MB."
+        );
+
+        event.target.value = "";
+
+        return;
+    }
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload =
+        function(e) {
+
+            const preview =
+                document.getElementById(
+                    "imagePreview"
+                );
+
+
+            preview.src =
+                e.target.result;
+
+
+            preview.style.display =
+                "block";
+
+        };
+
+
+    reader.readAsDataURL(
+        file
+    );
+
+}
+
+
+/* SAVE */
+
+function saveMemory() {
+
+    const file =
+        document.getElementById(
+            "imageInput"
+        ).files[0];
+
+
+    const title =
+        document.getElementById(
+            "memoryTitle"
+        ).value.trim();
+
+
+    const description =
+        document.getElementById(
+            "memoryDescription"
+        ).value.trim();
+
+
+    const tags =
+        document.getElementById(
+            "memoryTags"
+        ).value
+        .split(",")
+        .map(
+            t => t.trim()
+        )
+        .filter(Boolean);
+
+
+    if (!file) {
+
+        showToast(
+            "Please choose a photo."
+        );
+
+        return;
+    }
+
+
+    if (!title) {
+
+        showToast(
+            "Please add a title."
+        );
+
+        return;
+    }
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload =
+        function(e) {
+
+            const memories =
+                getMemories();
+
+
+            memories.unshift({
+
+                id:
+                    Date.now().toString(),
+
+                image:
+                    e.target.result,
+
+                title:
+                    title,
+
+                description:
+                    description,
+
+                tags:
+                    tags,
+
+                favorite:
+                    false,
+
+                date:
+                    new Date().toISOString()
+
+            });
+
+
+            saveMemories(
+                memories
+            );
+
+
+            closeUpload();
+
+            displayMemories();
+
+
+            showToast(
+                "Memory safely saved!"
+            );
+
+        };
+
+
+    reader.readAsDataURL(
+        file
+    );
+
+}
+
+
+/* DETAIL */
+
+function openDetail(id) {
+
+    const memories =
+        getMemories();
+
+
+    selectedMemory =
+        memories.find(
+            m =>
+                m.id === id
+        );
+
+
+    if (!selectedMemory)
+        return;
+
+
+    document.getElementById(
+        "detailImage"
+    ).src =
+        selectedMemory.image;
+
+
+    document.getElementById(
+        "detailTitle"
+    ).textContent =
+        selectedMemory.title;
+
+
+    document.getElementById(
+        "detailDescription"
+    ).textContent =
+        selectedMemory.description ||
+        "No description added.";
+
+
+    document.getElementById(
+        "detailDate"
+    ).textContent =
+        "Saved " +
+        new Date(
+            selectedMemory.date
+        ).toLocaleString();
+
+
+    const tagBox =
+        document.getElementById(
+            "detailTags"
+        );
+
+
+    tagBox.innerHTML = "";
+
+
+    selectedMemory.tags.forEach(
+        tag => {
+
+            const span =
+                document.createElement(
+                    "span"
+                );
+
+            span.className =
+                "tag";
+
+            span.textContent =
+                tag;
+
+            tagBox.appendChild(
+                span
+            );
+
+        }
+    );
+
+
+    document.getElementById(
+        "detailModal"
+    ).style.display =
+        "flex";
+
+}
+
+
+function closeDetail() {
+
+    document.getElementById(
+        "detailModal"
+    ).style.display =
+        "none";
+
+    selectedMemory = null;
+
+}
+
+
+/* EDIT */
+
+function editMemory() {
+
+    if (!selectedMemory)
+        return;
+
+
+    const title =
+        prompt(
+            "New title:",
+            selectedMemory.title
+        );
+
+
+    if (title === null)
+        return;
+
+
+    const description =
+        prompt(
+            "New description:",
+            selectedMemory.description
+        );
+
+
+    if (description === null)
+        return;
+
+
+    const tags =
+        prompt(
+            "Tags separated by commas:",
+            selectedMemory.tags.join(", ")
+        );
+
+
+    if (tags === null)
+        return;
+
+
+    const memories =
+        getMemories();
+
+
+    const memory =
+        memories.find(
+            m =>
+                m.id ===
+                selectedMemory.id
+        );
+
+
+    memory.title =
+        title.trim();
+
+
+    memory.description =
+        description.trim();
+
+
+    memory.tags =
+        tags
+        .split(",")
+        .map(
+            t => t.trim()
+        )
+        .filter(Boolean);
+
+
+    saveMemories(
+        memories
+    );
+
+
+    closeDetail();
+
+    displayMemories();
+
+
+    showToast(
+        "Memory updated."
+    );
+
+}
+
+
+/* FAVORITE */
+
+function favoriteMemory() {
+
+    if (!selectedMemory)
+        return;
+
+
+    const memories =
+        getMemories();
+
+
+    const memory =
+        memories.find(
+            m =>
+                m.id ===
+                selectedMemory.id
+        );
+
+
+    memory.favorite =
+        !memory.favorite;
+
+
+    saveMemories(
+        memories
+    );
+
+
+    selectedMemory =
+        memory;
+
+
+    displayMemories();
+
+
+    showToast(
+        memory.favorite
+        ? "Added to favorites ♥"
+        : "Removed from favorites."
+    );
+
+}
+
+
+/* DELETE */
+
+function deleteMemory() {
+
+    if (!selectedMemory)
+        return;
+
+
+    if (
+        !confirm(
+            "Delete this memory permanently from this browser?"
+        )
+    )
+        return;
+
+
+    let memories =
+        getMemories();
+
+
+    memories =
+        memories.filter(
+            m =>
+                m.id !==
+                selectedMemory.id
+        );
+
+
+    saveMemories(
+        memories
+    );
+
+
+    closeDetail();
+
+    displayMemories();
+
+
+    showToast(
+        "Memory deleted."
+    );
+
+}
+
+
+/* DOWNLOAD */
+
+function downloadMemory() {
+
+    if (!selectedMemory)
+        return;
+
+
+    const link =
+        document.createElement(
+            "a"
+        );
+
+
+    link.href =
+        selectedMemory.image;
+
+
+    link.download =
+        selectedMemory.title
+        .replace(
+            /[^a-z0-9]/gi,
+            "_"
+        ) +
+        ".jpg";
+
+
+    link.click();
+
+}
+
+
+/* THEME */
+
+function toggleTheme() {
+
+    document.body.classList.toggle(
+        "light"
+    );
+
+
+    localStorage.setItem(
+        "memoryVaultTheme",
+        document.body.classList.contains(
+            "light"
+        )
+        ? "light"
+        : "dark"
+    );
+
+}
+
+
+function loadTheme() {
+
+    const theme =
+        localStorage.getItem(
+            "memoryVaultTheme"
+        );
+
+
+    if (
+        theme === "light"
+    ) {
+
+        document.body.classList.add(
+            "light"
+        );
+
+    }
+
+}
+
+
+/* TOAST */
+
+function showToast(message) {
+
+    const toast =
+        document.getElementById(
+            "toast"
+        );
+
+
+    toast.textContent =
+        message;
+
+
+    toast.style.display =
+        "block";
+
+
+    setTimeout(
+        () => {
+
+            toast.style.display =
+                "none";
+
+        },
+        3000
+    );
+
+}
+
+
+/* ESCAPE HTML */
+
+function escapeHTML(text) {
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    div.textContent =
+        text;
+
+
+    return div.innerHTML;
+
+}
+
+
+/* START */
+
+window.onload =
+    function() {
+
+        loadTheme();
+
+
+        const savedUser =
+            localStorage.getItem(
+                "memoryVaultCurrentUser"
+            );
+
+
+        if (savedUser) {
+
+            currentUser =
+                JSON.parse(
+                    savedUser
+                );
+
+            showDashboard();
+
+        } else {
+
+            showHome();
+
+        }
+
+    };
+
+</script>
+
+</body>
+</html>
